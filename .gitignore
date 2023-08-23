@@ -1,0 +1,14 @@
+data/
+node_modules/
+docker-compose.yml
+.env
+.wwebjs_cache/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
