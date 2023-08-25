@@ -39,21 +39,66 @@ services:
 
 ## Use examples
 ### Send sms
-***Topic:*** `whatsapp/send/text/${chatId}`
+***Topic:*** `whatsapp/send/text/${{ chatId }}`
 ```json
 {
     "content": "Your message"
 }
 ```
 
-### Send image
-***Topic:*** `whatsapp/send/text/${chatId}`
+### Send media
+***Topic:*** `whatsapp/send/media/${{ chatId }}`
 ```json
 {
     "mimetype": "image/jpg",
-    "data": "your_image_in_base64"
+    "data": "{{ your_image_in_base64 }}"
 }
 ```
+[More info](https://docs.wwebjs.dev/MessageMedia.html)
+
+
+### Receive message
+***Topic:*** `whatsapp/message/${{ chatId_to }}`
+```json
+{
+    ...
+    "body": "{{ message }}",
+    "type": "chat",
+    "timestamp": 1692996944,
+    "from": "{{ chatId_from }}",
+    "to": "{{ chatId_to }}",
+    ...
+}
+```
+
+### Receive media
+***Topic:*** `whatsapp/message/${{ chatId_to }}`
+```json
+{
+    "_data": {
+        ...
+        "body": "{{ image_in_base64 }}",
+        "type": "image",
+        "t": 1692997913,
+        "notifyName": "{{ contact_name }}",
+        "from": "{{ chatId_from }}",
+        "to": "{{ chatId_to }}",
+        "mimetype": "image/jpeg",
+        "size": 441,
+        "width": 25,
+        "height": 25
+        ...
+    },
+    ...
+    "body": "{{ message }}",
+    "type": "image",
+    "timestamp": 1692997913,
+    "from": "{{ chatId_from }}@c.us",
+    "to": "{{ chatId_to }}@c.us"
+    ...
+}
+```
+
 
 ## Build image
 ```
