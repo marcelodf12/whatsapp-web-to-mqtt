@@ -13,6 +13,6 @@
     "mqtt": "^4.3.7",
     "puppeteer": "^20.7.4",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.21.0"
+    "whatsapp-web.js": "^1.22.2-alpha.0"
   }
 }
